@@ -1,0 +1,43 @@
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    {{number}}
+  </div>
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        number: 10
+      },
+      // 가벼운 로직, 유효성 검사
+      computed: {
+        doubleNum: function () {
+          return this.number * 2;
+        }
+      },
+      // 무거운 로직, 데이터 요청
+      watch: {
+        number: function (newValue, oldValue) {
+          console.log(newValue, oldValue);
+          this.fetchUserByNumber(newValue);
+        }
+      },
+      methods: {
+        fetchUserByNumber: function (num) {
+          console.log(num);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

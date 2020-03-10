@@ -1,0 +1,39 @@
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    {{number}}
+    <button v-on:click="addNum">increase</button>
+  </div>
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        number: 10
+      },
+      watch: {
+        number: function () {
+          this.logText();
+        }
+      },
+      methods: {
+        addNum: function () {
+          this.number = this.number + 1;
+        },
+        logText: function () {
+          console.log('changed');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
