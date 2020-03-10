@@ -1,4 +1,4 @@
-# Basic Vue
+# Basic Vue.js
 
 ### 1. Age of Vue.js 강의의 실습 예제 기반
 
@@ -8,11 +8,29 @@
 
 ### 2. 차이점
 
+* ESLint & Prettier 설정 추가
+* EditorConfig 설정 추가
+
 ### 3. TODO
 
 ### 4. Setting
 
 #### 4-1. level-1
+
+* init
+
+    ``` javascript
+    vue create [프로젝트 명]
+    ```
+
+* eslint & prettier
+
+    ``` javascript
+    npm i -D eslint-config-airbnb-base eslint-plugin-import  
+    npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+    ```
+
+#### 4-2. level-2
 
 * init
 
