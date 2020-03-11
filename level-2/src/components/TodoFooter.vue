@@ -1,17 +1,24 @@
 <template>
   <div class="clearAllContainer">
-    <span class="clearAllBtn hand" title="전체 할 일 지우기" @click="clearTodo">
+    <span
+      class="clearAllBtn hand"
+      title="전체 할 일 지우기"
+      @click="clearTodoItems"
+    >
       ClearAll
     </span>
   </div>
 </template>
 
 <script>
+  import {mapMutations} from 'vuex';
+
   export default {
     methods: {
-      clearTodo() {
-        this.$store.commit('clearTodoItems');
-      }
+      // clearTodo() {
+      //   this.$store.commit('clearTodoItems');
+      // }
+      ...mapMutations(['clearTodoItems'])
     }
   };
 </script>

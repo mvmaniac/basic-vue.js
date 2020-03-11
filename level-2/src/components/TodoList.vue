@@ -1,14 +1,11 @@
 <template>
   <div>
     <transition-group name="list" tag="ul">
-      <li
-        v-for="(todoItem, index) in this.$store.state.todoItems"
-        :key="todoItem.item"
-      >
+      <li v-for="(todoItem, index) in todoItems" :key="todoItem.item">
         <i
           class="fas fa-check checkBtn hand"
           :class="{checkBtnCompleted: todoItem.completed}"
-          @click="toggleComplete(todoItem, index)"
+          @click="toggleComplete({todoItem, index})"
         ></i>
 
         <span :class="{textCompleted: todoItem.completed}">
@@ -18,7 +15,7 @@
         <span
           class="removeBtn hand"
           title="할 일 삭제"
-          @click="removeTodo(todoItem, index)"
+          @click="removeTodoItem({todoItem, index})"
         >
           <i class="fas fa-trash-alt"></i>
         </span>
@@ -28,14 +25,19 @@
 </template>
 
 <script>
+  import {mapGetters, mapMutations} from 'vuex';
+
   export default {
+    computed: {
+      // todoItems() {
+      //   return this.$store.getters.getTodoItems;
+      // }
+      ...mapGetters({todoItems: 'getTodoItems'})
+    },
     methods: {
-      removeTodo(todoItem, index) {
-        this.$store.commit('removeTodoItem', {todoItem, index});
-      },
-      toggleComplete(todoItem, index) {
-        this.$store.commit('toggleTodoItem', {todoItem, index});
-      }
+      // 인자는 호출하는 쪽에서 넘김 파라미터가 그대로 넘어감...
+      ...mapMutations(['removeTodoItem']),
+      ...mapMutations({toggleComplete: 'toggleTodoItem'})
     }
   };
 </script>
