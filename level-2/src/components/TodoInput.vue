@@ -4,25 +4,33 @@
     <span class="addContainer hand" title="할 일 추가" @click="addTodo">
       <i class="fas fa-plus addBtn"></i>
     </span>
+
+    <Modal v-if="showModal" @close="showModal = false">
+      <h3 slot="header">
+        경고!
+      </h3>
+      <div slot="body"><b>제대로 입력 하세욧!</b></div>
+    </Modal>
   </div>
 </template>
 
 <script>
+  import Modal from './common/Modal.vue';
+
   export default {
-    data() {
-      return {
-        newTodoItem: ''
-      };
-    },
+    components: {Modal},
+    data: () => ({
+      newTodoItem: '',
+      showModal: false
+    }),
     methods: {
       addTodo() {
         if (!this.newTodoItem.trim().length) {
-          console.log('제대로 입력 하삼');
+          this.showModal = !this.showModal;
           return;
         }
 
-        const obj = {completed: false, item: this.newTodoItem};
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
       },
       clearInput() {

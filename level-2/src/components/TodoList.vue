@@ -1,11 +1,11 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(todoItem, index) in todoItems" :key="todoItem.item">
+    <transition-group name="list" tag="ul">
+      <li v-for="(todoItem, index) in propsdata" :key="todoItem.item">
         <i
           class="fas fa-check checkBtn hand"
           :class="{checkBtnCompleted: todoItem.completed}"
-          @click="toggleComplete(todoItem, index)"
+          @click="toggleComplete(index)"
         ></i>
 
         <span :class="{textCompleted: todoItem.completed}">
@@ -15,51 +15,29 @@
         <span
           class="removeBtn hand"
           title="할 일 삭제"
-          @click="removeTodo(todoItem, index)"
+          @click="removeTodo(index)"
         >
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-        todoItems: []
-      };
-    },
-    created() {
-      const {length} = localStorage;
-
-      if (!length) {
-        return;
-      }
-
-      for (let i = 0; i < length; i += 1) {
-        const key = localStorage.key(i);
-
-        if (key !== 'loglevel:webpack-dev-server') {
-          const item = localStorage.getItem(key);
-          this.todoItems.push(JSON.parse(item));
-        }
+    props: {
+      propsdata: {
+        type: Array,
+        default: () => []
       }
     },
     methods: {
-      removeTodo(todoItem, index) {
-        localStorage.removeItem(todoItem);
-        this.todoItems.splice(index, 1);
+      removeTodo(index) {
+        this.$emit('removeTodoItem', index);
       },
-      toggleComplete(todoItem, index) {
-        const item = todoItem;
-        item.completed = !item.completed;
-        this.updated(item);
-      },
-      updated(todoItem) {
-        localStorage.removeItem(todoItem.item);
-        localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+      toggleComplete(index) {
+        this.$emit('toggleTodoItem', index);
       }
     }
   };
@@ -102,5 +80,17 @@
   .textCompleted {
     text-decoration: line-through;
     color: #b3adad;
+  }
+
+  /* 리스트 아이템 트랜지션 효과 */
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 1s;
+  }
+
+  .list-enter,
+  .list-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
   }
 </style>
