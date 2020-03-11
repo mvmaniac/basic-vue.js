@@ -1,8 +1,3 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-
 const storage = {
   fetch() {
     const initTodoItems = [];
@@ -45,34 +40,4 @@ const storage = {
   }
 };
 
-export const store = new Vuex.Store({
-  state: {
-    todoItems: storage.fetch()
-  },
-  getters: {
-    getTodoItems: state => state.todoItems
-  },
-  mutations: {
-    addItem(state, todoItem) {
-      const savedTodoItem = storage.save(todoItem);
-      state.todoItems.push(savedTodoItem);
-    },
-    removeTodoItem(state, payload) {
-      storage.delete(payload.todoItem);
-      state.todoItems.splice(payload.index, 1);
-    },
-    toggleTodoItem(state, payload) {
-      const todoItem = state.todoItems[payload.index];
-      todoItem.completed = !todoItem.completed;
-
-      storage.update(payload.todoItem);
-    },
-    clearTodoItems(state) {
-      storage.clear();
-      // eslint-disable-next-line no-param-reassign
-      state.todoItems = [];
-    }
-  }
-});
-
-export default {};
+export default storage;
