@@ -38,6 +38,12 @@
     vue create [프로젝트 명]
     ```
 
+* vuex
+  
+    ``` javascript
+    npm install vuex
+    ```
+
 * eslint & prettier
 
     ``` javascript

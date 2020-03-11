@@ -30,7 +30,7 @@
           return;
         }
 
-        this.$emit('addTodoItem', this.newTodoItem);
+        this.$store.commit('addItem', this.newTodoItem);
         this.clearInput();
       },
       clearInput() {
