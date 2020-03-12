@@ -23,6 +23,12 @@
     vue create [프로젝트 명]
     ```
 
+* axios
+
+    ``` javascript
+    npm i axios
+    ```
+
 * eslint & prettier
 
     ``` javascript
@@ -41,7 +47,34 @@
 * vuex
   
     ``` javascript
-    npm install vuex
+    npm i vuex
+    ```
+
+* eslint & prettier
+
+    ``` javascript
+    npm i -D eslint-config-airbnb-base eslint-plugin-import  
+    npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+    ```
+
+#### 4-3. level-3
+
+* init
+
+    ``` javascript
+    vue create [프로젝트 명]
+    ```
+
+* vue-router & vuex
+  
+    ``` javascript
+    npm i vue-router vuex
+    ```
+
+* axios
+
+    ``` javascript
+    npm i axios
     ```
 
 * eslint & prettier
