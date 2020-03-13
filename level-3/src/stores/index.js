@@ -19,7 +19,7 @@ const store = new Vuex.Store({
     fetchedJobs: state => state.jobs,
     fetchedNews: state => state.news,
     fetchedUser: state => state.user,
-    fetchedUItem: state => state.item
+    fetchedItem: state => state.item
   },
   mutations,
   actions
