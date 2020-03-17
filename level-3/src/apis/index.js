@@ -6,16 +6,8 @@ const config = {
 };
 
 // 2. API 함수들을 정리
-function fetchNewsList() {
-  return axios.get(`${config.BASE_URL}/news/1.json`);
-}
-
-function fetchAskList() {
-  return axios.get(`${config.BASE_URL}/ask/1.json`);
-}
-
-function fetchJobsList() {
-  return axios.get(`${config.BASE_URL}/jobs/1.json`);
+function fetchList(pageName) {
+  return axios.get(`${config.BASE_URL}/${pageName}/1.json`);
 }
 
 function fetchUserInfo(username) {
@@ -26,13 +18,7 @@ function fetchItemInfo(id) {
   return axios.get(`${config.BASE_URL}/item/${id}.json`);
 }
 
-export {
-  fetchNewsList,
-  fetchAskList,
-  fetchJobsList,
-  fetchUserInfo,
-  fetchItemInfo
-};
+export {fetchList, fetchUserInfo, fetchItemInfo};
 
 /*
   default로 하게 되면 필요한 부분만 쓰려면 아래처럼 해야 함

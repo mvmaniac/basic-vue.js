@@ -4,15 +4,38 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
+    <spinner :loading="loadingStatus"></spinner>
   </div>
 </template>
 
 <script>
   import ToolBar from './components/Toolbar.vue';
+  import Spinner from './components/Spinner.vue';
+  import bus from './utils/bus';
 
   export default {
     components: {
-      ToolBar
+      ToolBar,
+      Spinner
+    },
+    data: () => ({
+      loadingStatus: false
+    }),
+    created() {
+      bus.$on('start:spinner', this.startSpinner);
+      bus.$on('end:spinner', this.endSpinnger);
+    },
+    beforeDestroy() {
+      bus.$off('start:spinner', this.startSpinner);
+      bus.$off('end:spinner', this.endSpinnger);
+    },
+    methods: {
+      startSpinner() {
+        this.loadingStatus = true;
+      },
+      endSpinnger() {
+        this.loadingStatus = false;
+      }
     }
   };
 </script>
