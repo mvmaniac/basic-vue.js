@@ -14,8 +14,13 @@ function fetchUserInfo(username) {
   return axios.get(`${config.BASE_URL}/user/${username}.json`);
 }
 
-function fetchItemInfo(id) {
-  return axios.get(`${config.BASE_URL}/item/${id}.json`);
+async function fetchItemInfo(id) {
+  try {
+    return await axios.get(`${config.BASE_URL}/item/${id}.json`);
+  } catch (e) {
+    console.error(e);
+    return Promise.reject(e);
+  }
 }
 
 export {fetchList, fetchUserInfo, fetchItemInfo};
