@@ -77,6 +77,12 @@
     npm i axios
     ```
 
+* chart.js
+  
+    ``` javascript
+    npm i chart.js
+    ```
+
 * eslint & prettier
 
     ``` javascript

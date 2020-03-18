@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import ChartView from '../views/ChartView.vue';
 import JobsView from '../views/JobsView.vue';
 import NewsView from '../views/NewsView.vue';
 import ItemView from '../views/ItemView.vue';
@@ -61,6 +62,10 @@ const router = new VueRouter({
     {
       path: '/user/:id',
       component: UserView
+    },
+    {
+      path: '/chart',
+      component: ChartView
     }
   ]
 });
