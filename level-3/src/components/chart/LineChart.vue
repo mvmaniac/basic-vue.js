@@ -3,14 +3,12 @@
 </template>
 
 <script>
-  import Chart from 'chart.js';
-
   export default {
     mounted() {
       // const ctx = document.getElementById('lineChart').getContext('2d');
       const ctx = this.$refs.lineChart;
 
-      const lineChart = new Chart(ctx, {
+      const lineChart = new this.$_Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
 

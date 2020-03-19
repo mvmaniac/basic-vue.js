@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import ChartView from '../views/ChartView.vue';
+import DesignView from '../views/DesignView.vue';
+
 import JobsView from '../views/JobsView.vue';
 import NewsView from '../views/NewsView.vue';
 import ItemView from '../views/ItemView.vue';
@@ -66,6 +68,10 @@ const router = new VueRouter({
     {
       path: '/chart',
       component: ChartView
+    },
+    {
+      path: '/design',
+      component: DesignView
     }
   ]
 });

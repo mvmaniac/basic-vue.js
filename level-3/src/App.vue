@@ -23,17 +23,17 @@
     }),
     created() {
       bus.$on('start:spinner', this.startSpinner);
-      bus.$on('end:spinner', this.endSpinnger);
+      bus.$on('end:spinner', this.endSpinner);
     },
     beforeDestroy() {
       bus.$off('start:spinner', this.startSpinner);
-      bus.$off('end:spinner', this.endSpinnger);
+      bus.$off('end:spinner', this.endSpinner);
     },
     methods: {
       startSpinner() {
         this.loadingStatus = true;
       },
-      endSpinnger() {
+      endSpinner() {
         this.loadingStatus = false;
       }
     }
