@@ -40,7 +40,7 @@ const router = new VueRouter({
             // bus.$emit('end:spinner');
             next();
           })
-          .catch(e => console.error(e));
+          .catch((e) => console.error(e));
       }
     },
     {

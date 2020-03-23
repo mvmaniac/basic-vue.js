@@ -13,8 +13,8 @@ const store = new Vuex.Store({
     item: {}
   },
   getters: {
-    fetchedUser: state => state.user,
-    fetchedItem: state => state.item
+    fetchedUser: (state) => state.user,
+    fetchedItem: (state) => state.item
   },
   mutations,
   actions

@@ -15,11 +15,11 @@
     created() {
       axios
         .get(this.url)
-        .then(response => {
+        .then((response) => {
           this.response = response.data;
           this.loading = false;
         })
-        .catch(e => console.error(e));
+        .catch((e) => console.error(e));
     },
     render() {
       return this.$scopedSlots.default({

@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-  getTodoItems: draftState => draftState.todoItems
+  getTodoItems: (draftState) => draftState.todoItems
 };
 
 const mutations = {

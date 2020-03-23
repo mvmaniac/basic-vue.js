@@ -20,7 +20,7 @@
     }),
     methods: {
       renewItems() {
-        const newItem = this.items.map(i => i + 10);
+        const newItem = this.items.map((i) => i + 10);
         this.items = newItem;
       }
     }

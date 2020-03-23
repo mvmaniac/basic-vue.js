@@ -14,8 +14,7 @@
   "parserOptions": {
     "parser": "babel-eslint",
     "ecmaVersion": 2020,
-    "sourceType": "module",
-    "allowImportExportEverywhere": false
+    "sourceType": "module"
   },
   "plugins": [
     "import",

@@ -8,9 +8,9 @@ export const store = new Vuex.Store({
     price: 100
   },
   getters: {
-    originPrice: state => state.price,
-    doublePrice: state => state.price * 2,
-    triplePrice: state => state.price * 3
+    originPrice: (state) => state.price,
+    doublePrice: (state) => state.price * 2,
+    triplePrice: (state) => state.price * 3
   }
 });
 
