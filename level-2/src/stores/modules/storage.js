@@ -1,4 +1,4 @@
-const storage = {
+export default {
   fetch() {
     const initTodoItems = [];
     const {length} = localStorage;
@@ -39,5 +39,3 @@ const storage = {
       : {completed: false, item};
   }
 };
-
-export default storage;

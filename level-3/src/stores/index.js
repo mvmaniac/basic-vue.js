@@ -6,7 +6,7 @@ import actions from './actions';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
     list: [],
     user: {},
@@ -19,5 +19,3 @@ const store = new Vuex.Store({
   mutations,
   actions
 });
-
-export default store;

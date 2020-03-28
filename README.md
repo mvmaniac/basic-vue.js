@@ -32,6 +32,7 @@
 * eslint & prettier
 
     ``` javascript
+    npm i -D eslint
     npm i -D eslint-config-airbnb-base eslint-plugin-import  
     npm i -D prettier eslint-config-prettier eslint-plugin-prettier
     ```
@@ -53,6 +54,7 @@
 * eslint & prettier
 
     ``` javascript
+    npm i -D eslint
     npm i -D eslint-config-airbnb-base eslint-plugin-import  
     npm i -D prettier eslint-config-prettier eslint-plugin-prettier
     ```
@@ -86,6 +88,7 @@
 * eslint & prettier
 
     ``` javascript
+    npm i -D eslint
     npm i -D eslint-config-airbnb-base eslint-plugin-import  
     npm i -D prettier eslint-config-prettier eslint-plugin-prettier
     ```

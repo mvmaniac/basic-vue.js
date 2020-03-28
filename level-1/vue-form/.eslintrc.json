@@ -10,6 +10,10 @@
     "plugin:prettier/recommended",
     "prettier/vue"
   ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "babel-eslint",
