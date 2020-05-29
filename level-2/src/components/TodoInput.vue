@@ -55,7 +55,7 @@
   .inputBox input {
     border-style: none;
     font-size: 0.9rem;
-    width: calc(100% - 50px);
+    width: calc(100% - 52px);
   }
 
   .addContainer {
