@@ -13,32 +13,32 @@
 </template>
 
 <script>
-import axios from 'axios';
+  import axios from 'axios';
 
-export default {
-  data() {
-    return {
-      username: '',
-      password: ''
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log(this.username, this.password);
-
-      const url = 'https://jsonplaceholder.typicode.com/users';
-      const data = {
-        username: this.username,
-        password: this.password
+  export default {
+    data() {
+      return {
+        username: '',
+        password: ''
       };
+    },
+    methods: {
+      submitForm() {
+        console.log(this.username, this.password);
 
-      axios
-        .post(url, data)
-        .then(response => console.log(response))
-        .catch(error => console.error(error));
+        const url = 'https://jsonplaceholder.typicode.com/users';
+        const data = {
+          username: this.username,
+          password: this.password
+        };
+
+        axios
+          .post(url, data)
+          .then((response) => console.log(response))
+          .catch((error) => console.error(error));
+      }
     }
-  }
-};
+  };
 </script>
 
 <style></style>

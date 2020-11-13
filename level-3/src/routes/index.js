@@ -31,13 +31,13 @@ const router = new VueRouter({
         // console.log('to: %o', to);
         // console.log('from: %o', from);
         // console.log('next: %o', next);
-        bus.$emit('start:spinner');
+        bus.$emit('start-spinner');
 
         store
           .dispatch('FETCH_LIST', to.name)
           .then(() => {
             // 해당 컴포넌트의 mounted로 처리
-            // bus.$emit('end:spinner');
+            // bus.$emit('end-spinner');
             next();
           })
           .catch((e) => console.error(e));

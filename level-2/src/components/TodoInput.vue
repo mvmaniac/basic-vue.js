@@ -6,9 +6,7 @@
     </span>
 
     <Modal v-if="showModal" @close="showModal = false">
-      <h3 slot="header">
-        경고!
-      </h3>
+      <h3 slot="header">경고!</h3>
       <div slot="body"><b>제대로 입력 하세욧!</b></div>
     </Modal>
   </div>

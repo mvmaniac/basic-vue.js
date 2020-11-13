@@ -5,23 +5,23 @@
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
+  import AppHeader from './components/AppHeader.vue';
 
-export default {
-  components: {
-    'app-header': AppHeader
-  },
-  data() {
-    return {
-      str: 'Header'
-    };
-  },
-  methods: {
-    renewStr() {
-      this.str = 'hi';
+  export default {
+    components: {
+      'app-header': AppHeader
+    },
+    data() {
+      return {
+        str: 'Header'
+      };
+    },
+    methods: {
+      renewStr() {
+        this.str = 'hi';
+      }
     }
-  }
-};
+  };
 </script>
 
 <style></style>

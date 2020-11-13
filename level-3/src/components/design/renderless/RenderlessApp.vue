@@ -7,9 +7,7 @@
           <p>name: {{ response.name }}</p>
           <p>email: {{ response.email }}</p>
         </div>
-        <div v-if="loading">
-          Loading...
-        </div>
+        <div v-if="loading">Loading...</div>
       </div>
     </fetch-data>
   </div>

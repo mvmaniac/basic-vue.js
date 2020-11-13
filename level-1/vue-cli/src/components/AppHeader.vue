@@ -6,14 +6,14 @@
 </template>
 
 <script>
-export default {
-  props: ['data'],
-  methods: {
-    sendEvent() {
-      this.$emit('renew');
+  export default {
+    props: ['data'],
+    methods: {
+      sendEvent() {
+        this.$emit('renew');
+      }
     }
-  }
-};
+  };
 </script>
 
 <style></style>
