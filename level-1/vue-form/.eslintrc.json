@@ -4,12 +4,7 @@
     "node": true,
     "es2021": true
   },
-  "extends": [
-    "airbnb-base",
-    "plugin:vue/recommended",
-    "prettier",
-    "prettier/vue"
-  ],
+  "extends": ["airbnb-base", "plugin:vue/recommended", "prettier"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
