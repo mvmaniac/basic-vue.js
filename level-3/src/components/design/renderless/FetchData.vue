@@ -22,7 +22,7 @@
         .catch((e) => console.error(e));
     },
     render() {
-      return this.$scopedSlots.default({
+      return this.$slots.default({
         response: this.response,
         loading: this.loading
       });

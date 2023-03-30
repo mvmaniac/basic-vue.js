@@ -1,4 +1,4 @@
-import {fetchUserInfo, fetchItemInfo, fetchList} from '../apis';
+import { fetchUserInfo, fetchItemInfo, fetchList } from '../apis';
 
 export default {
   // promise
@@ -12,7 +12,7 @@ export default {
   // },
 
   // async
-  async FETCH_LIST({commit}, pageName) {
+  async FETCH_LIST({ commit }, pageName) {
     try {
       const response = await fetchList(pageName);
       commit('SET_LIST', response.data);
@@ -23,7 +23,7 @@ export default {
     }
   },
 
-  async FETCH_USER({commit}, username) {
+  async FETCH_USER({ commit }, username) {
     try {
       const response = await fetchUserInfo(username);
       commit('SET_USER', response.data);
@@ -34,7 +34,7 @@ export default {
     }
   },
 
-  async FETCH_ITEM({commit}, id) {
+  async FETCH_ITEM({ commit }, id) {
     const response = await fetchItemInfo(id);
     commit('SET_ITEM', response.data);
     return response;

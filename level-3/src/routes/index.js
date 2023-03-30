@@ -1,21 +1,17 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import ChartView from '../views/ChartView.vue';
 import DesignView from '../views/DesignView.vue';
-
-import JobsView from '../views/JobsView.vue';
+import ShowView from '../views/ShowView.vue';
 import NewsView from '../views/NewsView.vue';
 import ItemView from '../views/ItemView.vue';
 import UserView from '../views/UserView.vue';
 import createListView from '../views/CreateListView';
-import bus from '../utils/bus';
+
 import store from '../stores';
 
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -27,11 +23,12 @@ const router = new VueRouter({
       path: '/news',
       name: 'news',
       component: NewsView,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: (to, _from, next) => {
         // console.log('to: %o', to);
         // console.log('from: %o', from);
         // console.log('next: %o', next);
-        bus.$emit('start-spinner');
+
+        // proxy.$bus.emit('start-spinner');
 
         store
           .dispatch('FETCH_LIST', to.name)
@@ -53,9 +50,9 @@ const router = new VueRouter({
     {
       // 컴포넌트는 mixin 사용
       // 데이터는 라이프 사이클 훅 사용 (created)
-      path: '/jobs',
-      name: 'jobs',
-      component: JobsView
+      path: '/show',
+      name: 'show',
+      component: ShowView
     },
     {
       path: '/item/:id',

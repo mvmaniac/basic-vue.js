@@ -10,14 +10,15 @@
 
 <script>
   export default {
-    // @input 이벤트
-    // :value 값
     props: {
       value: {
         type: Boolean,
         default: () => false
       }
     },
+    // @input 이벤트
+    // :value 값
+    emits: ['input'],
     methods: {
       toggleCheck() {
         this.$emit('input', !this.value);

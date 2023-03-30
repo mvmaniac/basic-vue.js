@@ -6,17 +6,17 @@
     </span>
 
     <Modal v-if="showModal" @close="showModal = false">
-      <h3 slot="header">경고!</h3>
-      <div slot="body"><b>제대로 입력 하세욧!</b></div>
+      <template #header>경고!</template>
+      <template #body><b>제대로 입력 하세욧!</b></template>
     </Modal>
   </div>
 </template>
 
 <script>
-  import Modal from './common/Modal.vue';
+  import Modal from './common/ModalVue.vue';
 
   export default {
-    components: {Modal},
+    components: { Modal },
     data: () => ({
       newTodoItem: '',
       showModal: false

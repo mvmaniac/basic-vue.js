@@ -1,17 +1,8 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 
 import App from './App.vue';
 import router from './routes';
 import store from './stores';
-import ChartPlugin from './plugins/ChartPlugin';
+import { plugin as bus } from './plugins/bus';
 
-Vue.config.productionTip = false;
-
-// install()가 실행 됨
-Vue.use(ChartPlugin);
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App)
-}).$mount('#app');
+createApp(App).use(router).use(store).use(bus).mount('#app');

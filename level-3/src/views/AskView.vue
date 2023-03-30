@@ -6,13 +6,15 @@
 
 <script>
   import ListItem from '../components/ListItem.vue';
-  import ListMixin from '../mixins/ListMixin';
+  import useFetchList from '../composable/fetchList';
 
   export default {
     components: {
       ListItem
     },
-    mixins: [ListMixin],
+    setup() {
+      useFetchList();
+    },
     computed: {
       // # 3
       // ...mapGetters({

@@ -1,16 +1,41 @@
 <template>
-  <canvas id="barChart" ref="barChart" width="400" height="400"></canvas>
+  <BarChart
+    id="barChart"
+    :options="chartOptions"
+    :data="chartData"
+    :width="400"
+    :height="400"
+  />
 </template>
 
 <script>
-  export default {
-    mounted() {
-      // const ctx = document.getElementById('barChart').getContext('2d');
-      const ctx = this.$refs.barChart;
+  import { Bar as BarChart } from 'vue-chartjs';
+  import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    PointElement,
+    BarElement,
+    CategoryScale,
+    LinearScale
+  } from 'chart.js';
 
-      const barChart = new this.$_Chart(ctx, {
-        type: 'bar',
-        data: {
+  ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    PointElement,
+    BarElement,
+    CategoryScale,
+    LinearScale
+  );
+
+  export default {
+    components: { BarChart },
+    data() {
+      return {
+        chartData: {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [
             {
@@ -36,18 +61,16 @@
             }
           ]
         },
-        options: {
+        chartOptions: {
           scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true
-                }
+            y: {
+              ticks: {
+                beginAtZero: true
               }
-            ]
+            }
           }
         }
-      });
+      };
     }
   };
 </script>

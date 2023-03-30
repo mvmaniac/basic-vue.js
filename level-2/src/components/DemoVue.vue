@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <p>{{ originPrcie }}</p>
+    <p>{{ originPrice }}</p>
     <p>{{ doublePrice }}</p>
     <p>{{ triplePrice }}</p>
   </div>
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     computed: {

@@ -2,12 +2,12 @@
   <div>
     <section>
       <user-profile>
-        <div slot="username">
+        <template #username>
           <router-link :to="`/user/${item.user}`">
             {{ item.user }}
           </router-link>
-        </div>
-        <template slot="time">{{ `Posted ${item.time_ago}` }}</template>
+        </template>
+        <template #time>{{ `Posted ${item.time_ago}` }}</template>
       </user-profile>
       <h2>{{ item.title }}</h2>
     </section>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
+  import { mapGetters } from 'vuex';
   import UserProfile from '../components/UserProfile.vue';
 
   export default {
@@ -32,7 +32,7 @@
       })
     },
     created() {
-      const {id} = this.$route.params;
+      const { id } = this.$route.params;
       this.$store.dispatch('FETCH_ITEM', id);
     }
   };

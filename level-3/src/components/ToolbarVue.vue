@@ -2,7 +2,7 @@
   <div class="header">
     <router-link to="/news">News</router-link><span>|</span>
     <router-link to="/ask">Ask</router-link><span>|</span>
-    <router-link to="/jobs">Jobs</router-link><span>|</span>
+    <router-link to="/show">Show</router-link><span>|</span>
     <router-link to="/chart">Chart</router-link><span>|</span>
     <router-link to="/design">Design</router-link>
     <span class="title">{{ title }}</span>

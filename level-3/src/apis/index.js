@@ -29,4 +29,4 @@ async function fetchItemInfo(id) {
   import apis from '../apis';
   const {fetchNewsList} = apis;
 */
-export {fetchList, fetchUserInfo, fetchItemInfo};
+export { fetchList, fetchUserInfo, fetchItemInfo };

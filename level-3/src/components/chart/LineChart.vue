@@ -1,19 +1,41 @@
 <template>
-  <canvas id="lineChart" ref="lineChart" width="400" height="400"></canvas>
+  <LineChart
+    id="lineChart"
+    :options="chartOptions"
+    :data="chartData"
+    :width="400"
+    :height="400"
+  ></LineChart>
 </template>
 
 <script>
+  import { Line as LineChart } from 'vue-chartjs';
+  import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    PointElement,
+    LineElement,
+    CategoryScale,
+    LinearScale
+  } from 'chart.js';
+
+  ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    PointElement,
+    LineElement,
+    CategoryScale,
+    LinearScale
+  );
+
   export default {
-    mounted() {
-      // const ctx = document.getElementById('lineChart').getContext('2d');
-      const ctx = this.$refs.lineChart;
-
-      const lineChart = new this.$_Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-
-        // The data for our dataset
-        data: {
+    components: { LineChart },
+    data() {
+      return {
+        chartData: {
           labels: [
             'January',
             'February',
@@ -32,10 +54,8 @@
             }
           ]
         },
-
-        // Configuration options go here
-        options: {}
-      });
+        chartOptions: {}
+      };
     }
   };
 </script>

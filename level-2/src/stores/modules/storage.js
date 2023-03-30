@@ -1,7 +1,7 @@
 export default {
   fetch() {
     const initTodoItems = [];
-    const {length} = localStorage;
+    const { length } = localStorage;
 
     if (!length) {
       return initTodoItems;
@@ -36,6 +36,6 @@ export default {
   wrapped(item) {
     return Object.prototype.hasOwnProperty.call(item, 'completed')
       ? item
-      : {completed: false, item};
+      : { completed: false, item };
   }
 };
