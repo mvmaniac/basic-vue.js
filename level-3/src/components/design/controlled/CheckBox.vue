@@ -13,8 +13,8 @@
     props: {
       value: {
         type: Boolean,
-        default: () => false
-      }
+        default: () => false,
+      },
     },
     // @input 이벤트
     // :value 값
@@ -22,8 +22,8 @@
     methods: {
       toggleCheck() {
         this.$emit('input', !this.value);
-      }
-    }
+      },
+    },
   };
 </script>
 

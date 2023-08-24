@@ -10,10 +10,10 @@
 
   export default {
     components: {
-      ListItem
+      ListItem,
     },
     setup() {
       useFetchList();
-    }
+    },
   };
 </script>

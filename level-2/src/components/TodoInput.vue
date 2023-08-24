@@ -19,7 +19,7 @@
     components: { Modal },
     data: () => ({
       newTodoItem: '',
-      showModal: false
+      showModal: false,
     }),
     methods: {
       addTodo() {
@@ -33,8 +33,8 @@
       },
       clearInput() {
         this.newTodoItem = '';
-      }
-    }
+      },
+    },
   };
 </script>
 

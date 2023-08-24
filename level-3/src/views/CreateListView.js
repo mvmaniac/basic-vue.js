@@ -22,6 +22,6 @@ export default function createListView(name) {
     },
     render() {
       return h(ListView);
-    }
+    },
   };
 }

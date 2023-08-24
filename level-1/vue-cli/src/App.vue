@@ -9,18 +9,18 @@
 
   export default {
     components: {
-      'app-header': AppHeader
+      'app-header': AppHeader,
     },
     data() {
       return {
-        str: 'Header'
+        str: 'Header',
       };
     },
     methods: {
       renewStr() {
         this.str = 'hi';
-      }
-    }
+      },
+    },
   };
 </script>
 

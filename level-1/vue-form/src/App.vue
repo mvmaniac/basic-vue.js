@@ -19,7 +19,7 @@
     data() {
       return {
         username: '',
-        password: ''
+        password: '',
       };
     },
     methods: {
@@ -29,15 +29,15 @@
         const url = 'https://jsonplaceholder.typicode.com/users';
         const data = {
           username: this.username,
-          password: this.password
+          password: this.password,
         };
 
         axios
           .post(url, data)
           .then((response) => console.log(response))
           .catch((error) => console.error(error));
-      }
-    }
+      },
+    },
   };
 </script>
 

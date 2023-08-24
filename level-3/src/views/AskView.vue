@@ -10,7 +10,7 @@
 
   export default {
     components: {
-      ListItem
+      ListItem,
     },
     setup() {
       useFetchList();
@@ -29,6 +29,6 @@
       // ask() {
       //   return this.$store.state.ask;
       // }
-    }
+    },
   };
 </script>

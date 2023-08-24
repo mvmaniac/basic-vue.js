@@ -12,8 +12,8 @@
 <script>
   export default {
     data: () => ({
-      title: process.env.VUE_APP_SUB_TITLE
-    })
+      title: process.env.VUE_APP_SUB_TITLE,
+    }),
   };
 </script>
 

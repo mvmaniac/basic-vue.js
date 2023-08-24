@@ -38,5 +38,5 @@ export default {
     const response = await fetchItemInfo(id);
     commit('SET_ITEM', response.data);
     return response;
-  }
+  },
 };

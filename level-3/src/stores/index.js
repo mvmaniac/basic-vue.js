@@ -7,12 +7,12 @@ export default createStore({
   state: {
     list: [],
     user: {},
-    item: {}
+    item: {},
   },
   getters: {
     fetchedUser: (state) => state.user,
-    fetchedItem: (state) => state.item
+    fetchedItem: (state) => state.item,
   },
   mutations,
-  actions
+  actions,
 });

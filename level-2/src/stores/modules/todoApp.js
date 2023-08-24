@@ -1,11 +1,11 @@
 import storage from './storage';
 
 const state = {
-  todoItems: storage.fetch()
+  todoItems: storage.fetch(),
 };
 
 const getters = {
-  getTodoItems: (draftState) => draftState.todoItems
+  getTodoItems: (draftState) => draftState.todoItems,
 };
 
 const mutations = {
@@ -30,11 +30,11 @@ const mutations = {
     storage.clear();
     // eslint-disable-next-line no-param-reassign
     draftState.todoItems = [];
-  }
+  },
 };
 
 export default {
   state,
   getters,
-  mutations
+  mutations,
 };

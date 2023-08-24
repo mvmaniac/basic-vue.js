@@ -18,8 +18,8 @@
       // clearTodo() {
       //   this.$store.commit('clearTodoItems');
       // }
-      ...mapMutations(['clearTodoItems'])
-    }
+      ...mapMutations(['clearTodoItems']),
+    },
   };
 </script>
 

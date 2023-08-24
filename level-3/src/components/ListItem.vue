@@ -41,8 +41,8 @@
     computed: {
       listItems() {
         return this.$store.state.list;
-      }
-    }
+      },
+    },
   };
 </script>
 

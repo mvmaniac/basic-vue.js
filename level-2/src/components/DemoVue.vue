@@ -11,7 +11,7 @@
 
   export default {
     computed: {
-      ...mapGetters(['originPrice', 'doublePrice', 'triplePrice'])
+      ...mapGetters(['originPrice', 'doublePrice', 'triplePrice']),
       // originPrice() {
       //   return this.$store.getters.originPrice;
       // },
@@ -21,7 +21,7 @@
       // triplePrice() {
       //   return this.$store.getters.triplePrice;
       // }
-    }
+    },
   };
 </script>
 

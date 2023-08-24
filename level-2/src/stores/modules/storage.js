@@ -37,5 +37,5 @@ export default {
     return Object.prototype.hasOwnProperty.call(item, 'completed')
       ? item
       : { completed: false, item };
-  }
+  },
 };

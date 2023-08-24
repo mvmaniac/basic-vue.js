@@ -24,17 +24,17 @@
 
   export default {
     components: {
-      UserProfile
+      UserProfile,
     },
     computed: {
       ...mapGetters({
-        item: 'fetchedItem'
-      })
+        item: 'fetchedItem',
+      }),
     },
     created() {
       const { id } = this.$route.params;
       this.$store.dispatch('FETCH_ITEM', id);
-    }
+    },
   };
 </script>
 

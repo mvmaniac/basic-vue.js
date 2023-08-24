@@ -15,7 +15,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/news'
+      redirect: '/news',
     },
     {
       // 컴포넌트는 mixin 사용
@@ -38,39 +38,39 @@ const router = createRouter({
             next();
           })
           .catch((e) => console.error(e));
-      }
+      },
     },
     {
       // 컴포넌트는 HOC 사용
       // 데이터는 라이프 사이클 훅 사용 (created)
       path: '/ask',
       name: 'ask',
-      component: createListView('AskView')
+      component: createListView('AskView'),
     },
     {
       // 컴포넌트는 mixin 사용
       // 데이터는 라이프 사이클 훅 사용 (created)
       path: '/show',
       name: 'show',
-      component: ShowView
+      component: ShowView,
     },
     {
       path: '/item/:id',
-      component: ItemView
+      component: ItemView,
     },
     {
       path: '/user/:id',
-      component: UserView
+      component: UserView,
     },
     {
       path: '/chart',
-      component: ChartView
+      component: ChartView,
     },
     {
       path: '/design',
-      component: DesignView
-    }
-  ]
+      component: DesignView,
+    },
+  ],
 });
 
 export default router;

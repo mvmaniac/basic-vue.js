@@ -18,11 +18,11 @@
 
   export default {
     components: {
-      FetchData
+      FetchData,
     },
     data: () => ({
-      checked: false
-    })
+      checked: false,
+    }),
   };
 </script>
 

@@ -10,11 +10,11 @@
 
   export default {
     components: {
-      CheckBox
+      CheckBox,
     },
     data: () => ({
-      checked: false
-    })
+      checked: false,
+    }),
   };
 </script>
 

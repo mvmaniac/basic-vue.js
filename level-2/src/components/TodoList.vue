@@ -32,13 +32,13 @@
       // todoItems() {
       //   return this.$store.getters.getTodoItems;
       // }
-      ...mapGetters({ todoItems: 'getTodoItems' })
+      ...mapGetters({ todoItems: 'getTodoItems' }),
     },
     methods: {
       // 인자는 호출하는 쪽에서 넘김 파라미터가 그대로 넘어감...
       ...mapMutations(['removeTodoItem']),
-      ...mapMutations({ toggleComplete: 'toggleTodoItem' })
-    }
+      ...mapMutations({ toggleComplete: 'toggleTodoItem' }),
+    },
   };
 </script>
 

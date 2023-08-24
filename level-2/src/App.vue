@@ -18,8 +18,8 @@
       TodoHeader,
       TodoInput,
       TodoList,
-      TodoFooter
-    }
+      TodoFooter,
+    },
   };
 </script>
 

@@ -11,8 +11,8 @@
     methods: {
       sendEvent() {
         this.$emit('renew');
-      }
-    }
+      },
+    },
   };
 </script>
 

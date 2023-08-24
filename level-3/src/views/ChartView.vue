@@ -14,8 +14,8 @@
   export default {
     components: {
       BarChart,
-      LineChart
-    }
+      LineChart,
+    },
   };
 </script>
 

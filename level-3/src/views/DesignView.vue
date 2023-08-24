@@ -18,8 +18,8 @@
       CommonApp,
       SlotApp,
       ControlledApp,
-      RenderlessApp
-    }
+      RenderlessApp,
+    },
   };
 </script>
 

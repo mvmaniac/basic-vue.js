@@ -11,9 +11,9 @@
     props: {
       loading: {
         type: Boolean,
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   };
 </script>
 

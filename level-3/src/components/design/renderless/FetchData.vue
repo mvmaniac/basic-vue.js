@@ -5,12 +5,12 @@
     props: {
       url: {
         type: String,
-        default: () => ''
-      }
+        default: () => '',
+      },
     },
     data: () => ({
       response: null,
-      loading: true
+      loading: true,
     }),
     created() {
       axios
@@ -24,8 +24,8 @@
     render() {
       return this.$slots.default({
         response: this.response,
-        loading: this.loading
+        loading: this.loading,
       });
-    }
+    },
   };
 </script>

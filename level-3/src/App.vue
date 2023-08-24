@@ -17,10 +17,10 @@
   export default {
     components: {
       ToolBar,
-      Spinner
+      Spinner,
     },
     data: () => ({
-      loadingStatus: false
+      loadingStatus: false,
     }),
     created() {
       this.$bus.on('start-spinner', this.startSpinner);
@@ -36,8 +36,8 @@
       },
       endSpinner() {
         this.loadingStatus = false;
-      }
-    }
+      },
+    },
   };
 </script>
 
