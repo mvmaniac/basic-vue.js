@@ -1,8 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="wrap">
-    <slot />
+  <div>
+    <h2>MyPage</h2>
+    <hr />
   </div>
 </template>
 

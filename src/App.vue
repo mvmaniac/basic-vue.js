@@ -1,10 +1,11 @@
 <script setup lang="ts">
-  import DefaultLayout from '@/layouts/DefaultLayout.vue';
-  import MainVue from '@/pages/MainVue.vue';
+  import AppAlert from '@/components/app/AppAlert.vue';
+  import TheHeader from '@/layouts/TheHeader.vue';
+  import TheView from '@/layouts/TheView.vue';
 </script>
 
 <template>
-  <DefaultLayout>
-    <MainVue />
-  </DefaultLayout>
+  <TheHeader />
+  <TheView />
+  <AppAlert />
 </template>
