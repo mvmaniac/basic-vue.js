@@ -1,10 +1,11 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
-
   import { computed, inject } from 'vue';
 
+  import type { Post } from '@/shared/types';
+
   import AppCard from '@/components/app/AppCard.vue';
-  import { Dayjs } from '@/plugins/symbol';
+
+  import { Dayjs } from '@/shared/plugins/symbol';
 
   const props = withDefaults(defineProps<Post>(), {
     title: '',

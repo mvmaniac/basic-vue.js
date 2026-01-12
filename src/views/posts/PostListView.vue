@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import type { Post, SearchParams } from '@/types';
-  import type { Ref } from 'vue';
-
   import { computed, ref, watch } from 'vue';
   import { useRouter } from 'vue-router';
-  
-  import { useAxios } from '@/composable/useAxios.ts';
+
+  import type { Post, SearchParams } from '@/shared/types';
+  import type { Ref } from 'vue';
+
+  import PostDetailView from '@/views/posts/PostDetailView.vue';
 
   import AppCard from '@/components/app/AppCard.vue';
   import AppError from '@/components/app/AppError.vue';
@@ -15,7 +15,8 @@
   import PostFilter from '@/components/posts/PostFilter.vue';
   import PostItem from '@/components/posts/PostItem.vue';
   import PostModal from '@/components/posts/PostModal.vue';
-  import PostDetailView from '@/views/posts/PostDetailView.vue';
+
+  import { useAxios } from '@/composable/useAxios.ts';
 
   const router = useRouter();
 
@@ -34,15 +35,11 @@
     loading,
   } = useAxios<Post[], Ref<SearchParams>>('/posts', { params });
 
-  const totalCount = computed(
-    () => (response.value?.headers?.['x-total-count'] as number) ?? 0,
-  );
-  const pageCount = computed(() =>
-    Math.ceil(totalCount.value / params.value._limit),
-  );
+  const totalCount = computed(() => (response.value?.headers?.['x-total-count'] as number) ?? 0);
+  const pageCount = computed(() => Math.ceil(totalCount.value / params.value._limit));
 
   const goPage = async (id = 1) => {
-    // router.push(`/posts/${id}`);
+    // routes.push(`/posts/${id}`);
     await router.push({
       name: 'PostDetail',
       params: {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
+  import type { Post } from '@/shared/types';
 
   // 양방향 바인딩 3.4 이전 방법
   withDefaults(defineProps<Post>(), {
@@ -23,9 +23,7 @@
         type="text"
         class="form-control"
         :value="title"
-        @input="
-          $emit('update:title', ($event.target as HTMLInputElement).value)
-        "
+        @input="$emit('update:title', ($event.target as HTMLInputElement).value)"
       />
     </div>
     <div class="mb-3">
@@ -35,9 +33,7 @@
         class="form-control"
         rows="3"
         :value="content"
-        @input="
-          $emit('update:content', ($event.target as HTMLInputElement).value)
-        "
+        @input="$emit('update:content', ($event.target as HTMLInputElement).value)"
       ></textarea>
     </div>
     <div class="d-flex gap-2 mt-4">

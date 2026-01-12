@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { storeToRefs } from 'pinia';
   import { useRoute } from 'vue-router';
+
+  import { storeToRefs } from 'pinia';
 
   import { useCounterStore } from '@/stores/counter';
 
@@ -15,9 +16,7 @@
   <div>
     <h2>About View</h2>
     <p>{{ $route.path }}</p>
-    <button class="btn btn-primary" @click="$router.push('/')">
-      Home으로 이동
-    </button>
+    <button class="btn btn-primary" @click="$router.push('/')">Home으로 이동</button>
     <h2>Store</h2>
     <p>counter: {{ counter }}</p>
     <p>doubleCount: {{ doubleCount }}</p>

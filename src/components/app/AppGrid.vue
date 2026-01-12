@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
+  import type { Post } from '@/shared/types';
 
   // TODO:[yhs] 제네릭으로 선언 할 수 없나?, slot 타입도 마찬가지...
   interface Props {

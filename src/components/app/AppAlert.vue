@@ -3,8 +3,7 @@
 
   const { alerts } = useAlert();
 
-  const typeStyle = (type = '') =>
-    type === 'error' ? 'alert-danger' : 'alert-primary';
+  const typeStyle = (type = '') => (type === 'error' ? 'alert-danger' : 'alert-primary');
 </script>
 
 <template>

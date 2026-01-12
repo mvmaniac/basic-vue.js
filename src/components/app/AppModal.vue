@@ -1,7 +1,7 @@
 <script setup lang="ts">
   interface Props {
-    modelValue: boolean;
-    title: string;
+    modelValue?: boolean;
+    title?: string;
   }
 
   withDefaults(defineProps<Props>(), {
@@ -18,11 +18,7 @@
   <transition>
     <div v-if="modelValue">
       <div class="modal-backdrop fade show"></div>
-      <div
-        class="modal fade show d-block"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-      >
+      <div class="modal fade show d-block" tabindex="-1" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

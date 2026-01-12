@@ -1,7 +1,7 @@
 import type { App } from 'vue';
 
-import color from '@/directives/color';
-import focus from '@/directives/focus';
+import color from '@/shared/directives/color';
+import focus from '@/shared/directives/focus';
 
 export default {
   install(app: App) {

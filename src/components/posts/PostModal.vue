@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
-
   import { computed } from 'vue';
+
+  import type { Post } from '@/shared/types';
 
   import AppModal from '@/components/app/AppModal.vue';
 
   interface Props extends Omit<Post, 'id'> {
-    modelValue: boolean;
+    modelValue?: boolean;
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -46,9 +46,7 @@
       </div>
     </template>
     <template #actions>
-      <button type="button" class="btn btn-secondary" @click="closeModal">
-        닫기
-      </button>
+      <button type="button" class="btn btn-secondary" @click="closeModal">닫기</button>
     </template>
   </AppModal>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   // defineModel를 쓰지 않고 아래 처럼 할 수 있음
-  withDefaults(defineProps<{ title: string }>(), {
+  withDefaults(defineProps<{ title?: string }>(), {
     title: '',
   });
 

@@ -1,6 +1,6 @@
-import type { Alert } from '@/types';
-
 import { defineStore } from 'pinia';
+
+import type { Alert } from '@/shared/types';
 
 interface State {
   alerts: Alert[];

@@ -1,8 +1,8 @@
-import type { App } from 'vue';
-
 import dayjs from 'dayjs';
 
-import { Dayjs } from '@/types';
+import type { App } from 'vue';
+
+import { Dayjs } from '@/shared/types';
 
 export default {
   install(app: App) {

@@ -1,6 +1,6 @@
-import type { AxiosRequestConfig } from 'axios';
-
 import axios from 'axios';
+
+import type { AxiosRequestConfig } from 'axios';
 
 function create(baseURL: string, options: AxiosRequestConfig = {}) {
   return axios.create(Object.assign({ baseURL }, options));

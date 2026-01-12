@@ -1,9 +1,10 @@
-import type { AxiosOption } from '@/types';
-import type { AxiosResponse, AxiosInstance } from 'axios';
-import type { Ref, MaybeRef } from 'vue';
-
-import axios, { AxiosRequestConfig } from 'axios';
 import { isRef, ref, unref, watchEffect } from 'vue';
+
+import axios from 'axios';
+
+import type { AxiosOption } from '@/shared/types';
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import type { MaybeRef, Ref } from 'vue';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_API_URL as string,

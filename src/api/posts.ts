@@ -1,4 +1,4 @@
-import type { Post, SearchParams } from '@/types';
+import type { Post, SearchParams } from '@/shared/types';
 import type { AxiosResponse } from 'axios';
 
 import { axiosPost } from '@/api';
@@ -15,10 +15,7 @@ export function createPost(data: Post): Promise<AxiosResponse<Post>> {
   return axiosPost.post('', data);
 }
 
-export function updatePost(
-  id: number,
-  data: Post,
-): Promise<AxiosResponse<Post>> {
+export function updatePost(id: number, data: Post): Promise<AxiosResponse<Post>> {
   return axiosPost.patch(`${id}`, data);
 }
 

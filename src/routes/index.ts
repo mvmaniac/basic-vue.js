@@ -1,15 +1,15 @@
-import type { RouteRecordRaw, RouteLocation } from 'vue-router';
-
 import { createRouter, createWebHistory } from 'vue-router';
+
+import type { RouteLocation, RouteRecordRaw } from 'vue-router';
 
 import AboutView from '@/views/AboutView.vue';
 import HomeView from '@/views/HomeView.vue';
 import MyPage from '@/views/MyPage.vue';
-import NotFoundView from '@/views/NotFoundView.vue';
 import NestedHomeView from '@/views/nested/NestedHomeView.vue';
 import NestedOneView from '@/views/nested/NestedOneView.vue';
 import NestedTwoView from '@/views/nested/NestedTwoView.vue';
 import NestedView from '@/views/nested/NestedView.vue';
+import NotFoundView from '@/views/NotFoundView.vue';
 import PostCreateView from '@/views/posts/PostCreateView.vue';
 import PostDetailView from '@/views/posts/PostDetailView.vue';
 import PostEditView from '@/views/posts/PostEditView.vue';

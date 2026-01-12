@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  withDefaults(defineProps<{ message: string }>(), {
+  withDefaults(defineProps<{ message?: string }>(), {
     message: '',
   });
 </script>

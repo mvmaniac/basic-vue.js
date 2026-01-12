@@ -1,14 +1,14 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
-
   import { useRoute, useRouter } from 'vue-router';
 
-  import { useAlert } from '@/composable/useAlert.ts';
-  import { useAxios } from '@/composable/useAxios.ts';
+  import type { Post } from '@/shared/types';
 
   import AppError from '@/components/app/AppError.vue';
   import AppLoading from '@/components/app/AppLoading.vue';
   import PostForm from '@/components/posts/PostForm.vue';
+
+  import { useAlert } from '@/composable/useAlert.ts';
+  import { useAxios } from '@/composable/useAxios.ts';
 
   const router = useRouter();
   const route = useRoute();
@@ -43,8 +43,7 @@
     });
   };
 
-  const goDetailPage = () =>
-    router.push({ name: 'PostDetail', params: { id } });
+  const goDetailPage = () => router.push({ name: 'PostDetail', params: { id } });
 </script>
 
 <template>
@@ -56,19 +55,9 @@
     <h2>게시글 수정</h2>
     <hr class="my-4" />
     <AppError v-if="editError" :message="editError.message" />
-    <PostForm
-      v-model:title="form.title"
-      v-model:content="form.content"
-      @submit.prevent="edit"
-    >
+    <PostForm v-model:title="form.title" v-model:content="form.content" @submit.prevent="edit">
       <template #actions>
-        <button
-          type="button"
-          class="btn btn-outline-danger"
-          @click="goDetailPage"
-        >
-          취소
-        </button>
+        <button type="button" class="btn btn-outline-danger" @click="goDetailPage">취소</button>
         <button class="btn btn-primary" :disabled="editLoading">
           <template v-if="editLoading">
             <span class="spinner-grow spinner-grow-sm" role="status"></span>

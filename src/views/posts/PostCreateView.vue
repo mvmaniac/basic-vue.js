@@ -1,15 +1,15 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
-  import type { Ref } from 'vue';
-
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  
-  import { useAlert } from '@/composable/useAlert.ts';
-  import { useAxios } from '@/composable/useAxios.ts';
+
+  import type { Post } from '@/shared/types';
+  import type { Ref } from 'vue';
 
   import AppError from '@/components/app/AppError.vue';
   import PostForm from '@/components/posts/PostForm.vue';
+
+  import { useAlert } from '@/composable/useAlert.ts';
+  import { useAxios } from '@/composable/useAxios.ts';
 
   const router = useRouter();
   const { vAlert, vSuccess } = useAlert();
@@ -58,9 +58,7 @@
       @submit.prevent="save"
     >
       <template #actions>
-        <button type="button" class="btn btn-outline-dark" @click="goListPage">
-          목록
-        </button>
+        <button type="button" class="btn btn-outline-dark" @click="goListPage">목록</button>
         <button class="btn btn-primary" :disabled="loading">
           <template v-if="loading">
             <span class="spinner-grow spinner-grow-sm" role="status"></span>

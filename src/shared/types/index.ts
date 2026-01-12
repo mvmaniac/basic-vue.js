@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios';
 
-export { Dayjs } from '@/plugins/symbol';
+export { Dayjs } from '@/shared/plugins/symbol';
 
 export interface Person {
   name: string;

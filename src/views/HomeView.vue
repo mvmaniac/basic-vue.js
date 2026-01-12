@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import type { Person } from '@/types';
-  import type { Ref } from 'vue';
-
   import { inject, ref } from 'vue';
   import { useRouter } from 'vue-router';
+
+  import type { Person } from '@/shared/types';
+  import type { Ref } from 'vue';
 
   import AppCard from '@/components/app/AppCard.vue';
   import AppGrid from '@/components/app/AppGrid.vue';

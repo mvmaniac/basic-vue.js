@@ -1,21 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import type { DefineComponent } from 'vue';
-
-import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 
-import '@/style.css';
+import { createPinia } from 'pinia';
+
+import type { Person } from '@/shared/types';
+import type { DefineComponent } from 'vue';
+
 import App from '@/App.vue';
-import dayjs from '@/plugins/dayjs';
-import funcPlugins from '@/plugins/func';
-// import globalComponents from '@/plugins/global-components';
-import globalDirectives from '@/plugins/global-directives';
-import objPlugins from '@/plugins/obj';
-import person from '@/plugins/person';
-import router from '@/router';
-import { Person } from '@/types';
+import router from '@/routes';
+
+import dayjs from '@/shared/plugins/dayjs';
+import funcPlugins from '@/shared/plugins/func';
+// import globalComponents from '@/shared/plugins/global-components';
+import globalDirectives from '@/shared/plugins/global-directives';
+import objPlugins from '@/shared/plugins/obj';
+import person from '@/shared/plugins/person';
+
+import '@/style.css';
 
 const app = createApp(App as DefineComponent);
 

@@ -2,8 +2,8 @@
   import { computed } from 'vue';
 
   interface Props {
-    currentPage: number;
-    pageCount: number;
+    currentPage?: number;
+    pageCount?: number;
   }
 
   const props = withDefaults(defineProps<Props>(), {

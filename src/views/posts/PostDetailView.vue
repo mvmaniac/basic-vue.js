@@ -1,18 +1,14 @@
 <script setup lang="ts">
-  import type { Post } from '@/types';
-
   import { computed } from 'vue';
-  import {
-    onBeforeRouteLeave,
-    onBeforeRouteUpdate,
-    useRouter,
-  } from 'vue-router';
-  
-  import { useAlert } from '@/composable/useAlert.ts';
-  import { useAxios } from '@/composable/useAxios.ts';
+  import { onBeforeRouteLeave, onBeforeRouteUpdate, useRouter } from 'vue-router';
+
+  import type { Post } from '@/shared/types';
 
   import AppError from '@/components/app/AppError.vue';
   import AppLoading from '@/components/app/AppLoading.vue';
+
+  import { useAlert } from '@/composable/useAlert.ts';
+  import { useAxios } from '@/composable/useAxios.ts';
 
   interface Props {
     id: number;
@@ -68,10 +64,9 @@
   };
 
   const goListPage = () => router.push({ name: 'PostList' });
-  const goEditPage = () =>
-    router.push({ name: 'PostEdit', params: { id: props.id } });
+  const goEditPage = () => router.push({ name: 'PostEdit', params: { id: props.id } });
 
-  // router.push를 통해 경로가 변경될 때 호출 됨
+  // routes.push를 통해 경로가 변경될 때 호출 됨
   onBeforeRouteUpdate(() => {
     console.log('onBeforeRouteUpdate');
   });
@@ -109,16 +104,10 @@
         <button class="btn btn-outline-dark" @click="goListPage">목록</button>
       </div>
       <div class="col-auto">
-        <button class="btn btn-outline-primary" @click="goEditPage">
-          수정
-        </button>
+        <button class="btn btn-outline-primary" @click="goEditPage">수정</button>
       </div>
       <div class="col-auto">
-        <button
-          class="btn btn-outline-danger"
-          :disabled="removeLoading"
-          @click="remove"
-        >
+        <button class="btn btn-outline-danger" :disabled="removeLoading" @click="remove">
           <template v-if="removeLoading">
             <span class="spinner-grow spinner-grow-sm" role="status"></span>
             <span class="visually-hidden">Loading...</span>
