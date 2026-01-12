@@ -15,6 +15,9 @@ export default defineConfig({
     },
   },
   server: {
-    hmr: false, // 수동으로 하기 위해...
+    hmr: true,
+    watch: {
+      ignored: ['**/mock/**'],
+    },
   },
 });

@@ -1,107 +1,163 @@
-import eslint from '@eslint/js';
+import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import configPrettier from 'eslint-config-prettier';
-import pluginImport from 'eslint-plugin-import';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import { importX as pluginImportX } from 'eslint-plugin-import-x';
 import pluginNoRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
 import pluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
-import typescriptEslint from 'typescript-eslint';
+import {
+  configs as tseslintConfigs,
+  parser as tseslintParser,
+  plugin as tseslintPlugin,
+} from 'typescript-eslint';
 import vueEslintParser from 'vue-eslint-parser';
 
-const tsConfigFiles = ['tsconfig.app.json', 'tsconfig.node.json'];
+const isProd = (process.env.NODE_ENV ?? '').toLowerCase() === 'production';
 
-// TODO:[yhs] no-console prod 확인
-export default typescriptEslint.config(
-  eslint.configs.recommended,
-  pluginImport.flatConfigs.recommended,
+export default defineConfig(
+  {
+    ignores: ['dist/**', 'public/**'],
+  },
+
+  js.configs.recommended,
+
+  /** @see https://github.com/un-ts/eslint-plugin-import-x?tab=readme-ov-file#typescript-example */
+  pluginImportX.flatConfigs.recommended,
+  pluginImportX.flatConfigs.typescript,
 
   /** @see https://typescript-eslint.io/getting-started/typed-linting */
-  ...typescriptEslint.configs.recommendedTypeChecked,
-  ...typescriptEslint.configs.stylisticTypeChecked,
+  tseslintConfigs.recommendedTypeChecked,
+  tseslintConfigs.stylisticTypeChecked,
 
   /** @see https://eslint.vuejs.org/user-guide/#usage */
-  ...pluginVue.configs['flat/recommended'],
+  pluginVue.configs['flat/recommended'],
 
   configPrettier,
 
   {
     files: ['**/*.{js,jsx,ts,tsx,vue}'],
-    ignores: ['{dist,public}/**/*'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
         ...globals.browser,
-        ...globals.node,
       },
       /** @see https://eslint.vuejs.org/user-guide/#how-to-use-a-custom-parser */
       parser: vueEslintParser,
       parserOptions: {
         /** @see https://typescript-eslint.io/packages/typescript-eslint#advanced-usage */
-        parser: typescriptEslint.parser,
-        /** @see https://typescript-eslint.io/packages/parser/#project */
+        parser: tseslintParser,
+        /** @see https://typescript-eslint.io/blog/project-service */
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
-        project: tsConfigFiles,
         extraFileExtensions: ['.vue'],
       },
     },
-    /** @see https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#typescript */
     settings: {
-      'import/resolver': {
-        typescript: {
-          project: tsConfigFiles,
-        },
-        node: true,
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+          project: ['tsconfig.json'],
+        }),
+      ],
+    },
+  },
+
+  {
+    /** @see https://typescript-eslint.io/troubleshooting/typed-linting/#how-do-i-disable-type-checked-linting-for-a-file */
+    files: ['**/*.{js,jsx}'],
+    extends: [tseslintConfigs.disableTypeChecked],
+  },
+
+  {
+    files: [
+      '*.config.{js,ts,mjs,cjs}',
+      'scripts/**/*.{js,ts}',
+      'vite.config.{js,ts}',
+      'vitest.config.{js,ts}',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.node,
       },
     },
   },
 
   {
     plugins: {
-      '@typescript-eslint': typescriptEslint.plugin,
+      '@typescript-eslint': tseslintPlugin,
       'no-relative-import-paths': pluginNoRelativeImportPaths,
     },
     rules: {
-      'no-console': process.env.NODE_ENV === 'prod' ? 'error' : 'warn',
+      'no-console': isProd ? 'error' : 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
       'no-relative-import-paths/no-relative-import-paths': [
         'error',
         { allowSameFolder: false, rootDir: 'src', prefix: '@' },
       ],
-      'import/order': [
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        },
+      ],
+      'import-x/order': [
         'error',
         {
           groups: [
-            'type',
             'builtin',
             'external',
+            'type',
             'internal',
-            'index',
-            ['parent', 'sibling'],
+            ['parent', 'sibling', 'index'],
+            'object',
             'unknown',
           ],
+
           pathGroups: [
+            // vue
             {
-              pattern: '@/api/**',
-              group: 'internal',
+              pattern: '{vue,vue/**,vue-router,vue-router/**}',
+              group: 'external',
               position: 'before',
             },
-            {
-              pattern: '@/composable/**',
-              group: 'internal',
-              position: 'before',
-            },
+
+            // pinia
+            { pattern: 'pinia', group: 'external', position: 'before' },
+            { pattern: 'pinia/**', group: 'external', position: 'before' },
+
+            // type
+            { pattern: '@/shared/types', group: 'type', position: 'after' },
+            { pattern: '@/shared/types/**', group: 'type', position: 'after' },
+
+            // internal
+            { pattern: '@/routes/**', group: 'internal', position: 'before' },
+            { pattern: '@/layouts/**', group: 'internal', position: 'before' },
+
+            { pattern: '@/stores/**', group: 'internal', position: 'before' },
+            { pattern: '@/views/**', group: 'internal', position: 'before' },
+            { pattern: '@/components/**', group: 'internal', position: 'before' },
+
+            { pattern: '@/composable/**', group: 'internal', position: 'after' },
+            { pattern: '@/api/**', group: 'internal', position: 'after' },
+            { pattern: '@/shared/**', group: 'internal', position: 'after' },
           ],
           'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-          },
+          pathGroupsExcludedImportTypes: ['builtin', 'type'],
+          alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
     },
-  },
-
-  {
-    /** @see https://typescript-eslint.io/getting-started/typed-linting#how-can-i-disable-type-aware-linting-for-a-subset-of-files */
-    files: ['**/*.{js,jsx}'],
-    ...typescriptEslint.configs.disableTypeChecked,
   },
 );
